@@ -1,323 +1,394 @@
-/* ================= WRAPPER ================= */
-.smm-wrapper {
-    background: linear-gradient(135deg, #f5f7fa, #e4ecf7);
-    padding: 20px;    
-    min-height: 100vh;
-    transition: 0.3s;
+/* ================= BASE ================= */
+.smm-wrapper{
+    background:linear-gradient(135deg,#f5f7fa,#e4ecf7);
+    padding:20px;
+    min-height:100vh;
+    transition:.3s;
+    font-family:system-ui;
 }
 
 /* ================= HEADER ================= */
-.smm-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+.smm-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
 }
 
-.smm-header h1 {
-    font-size: 26px;
+.smm-header h1{
+    font-size:26px;
     line-height: 36px;
-    font-weight: 700;
-    background: linear-gradient(90deg,#2271b1,#00a0d2);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-weight:700;
+    background:linear-gradient(90deg,#2271b1,#00a0d2);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
-/* ================= CONTROLS ================= */
-.smm-controls {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.smm-label {
-    font-weight: 500;
+.smm-controls{
+    display:flex;
+    align-items:center;
+    gap:10px;
 }
 
 /* ================= CARD ================= */
-.smm-card {
-    background: #fff;
-    border-radius: 12px;    
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+.smm-card{
+    background:#fff;
+    border-radius:14px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    overflow:hidden;
 }
 
 /* ================= TABLE ================= */
-.smm-table {
-    width: 100%;
-    border-collapse: collapse;
+.smm-table{
+    width:100%;
+    border-collapse:collapse;
 }
 
-/* HEADER */
-.smm-table thead {
-    background: linear-gradient(90deg,#2271b1,#00a0d2);
-    color: #fff;
+.smm-table thead{
+    background:linear-gradient(90deg,#2271b1,#00a0d2);
+    color:#fff;
 }
 
-/* REMOVE HOVER ON THEAD */
-.smm-table thead tr:hover {
-    background: inherit !important;
+.smm-table th,
+.smm-table td{
+    padding:12px;
+    text-align:left;
 }
 
-.smm-table th, .smm-table td {
-    padding: 12px;
-    text-align: left;
+.smm-table tbody tr{
+    transition:.2s;
 }
 
-/* ONLY BODY HOVER */
-.smm-table tbody tr:hover {
-    background: #f5f9ff;
+.smm-table tbody tr:hover{
+    background:#f5f9ff;
 }
 
 /* ================= INPUT ================= */
 .smm-table input,
-.smm-table textarea {
-    width: 100%;
-    height: 38px;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    padding: 6px;
+.smm-table textarea{
+    width:100%;
+    height:38px;
+    border-radius:8px;
+    border:1px solid #ddd;
+    padding:6px 8px;
+    background:linear-gradient(180deg,#fff,#f7f9fc);
+    font-size:13px;
+    transition:.2s;
+}
+
+.smm-table textarea{
+    resize:none;
+}
+
+.smm-table input:focus,
+.smm-table textarea:focus{
+    border-color:#2271b1;
+    box-shadow:0 0 0 2px rgba(34,113,177,.15);
+    outline:none;
 }
 
 /* ================= BUTTON ================= */
-.smm-btn {
-    padding: 6px 12px;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
+.smm-btn,
+.smm-page-btn,
+#smm-theme-toggle{
+    border:none;
+    border-radius:8px;
+    padding:6px 14px;
+    font-size:13px;
+    cursor:pointer;
+    transition:.25s;
+    text-decoration:none;
+    display:inline-block;
 }
 
-.smm-btn.primary {
-    background: linear-gradient(90deg,#2271b1,#00a0d2);
-    color: #fff;
+.smm-btn.primary{
+    background:linear-gradient(90deg,#2271b1,#00a0d2);
+    color:#fff;
+    box-shadow:0 4px 12px rgba(34,113,177,.3);
+}
+
+.smm-btn.primary:hover{
+    transform:translateY(-1px);
+    box-shadow:0 6px 18px rgba(34,113,177,.4);
+}
+
+.smm-btn{
+    background:linear-gradient(90deg,#f1f1f1,#e0e0e0);
+    color:#333;
+}
+
+.smm-btn:hover{
+    background:linear-gradient(90deg,#e0e0e0,#d5d5d5);
+}
+
+/* ================= DROPDOWN ================= */
+.smm-dropdown{
+    position:relative;
+    display:inline-block;
+}
+
+.smm-dropdown-menu{
+    display:none;
+    position:absolute;
+    right:0;
+    top:110%;
+    min-width:160px;
+    background:#fff;
+    border-radius:10px;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+    overflow:hidden;
+    z-index:100;
+}
+
+.smm-dropdown-menu.show{
+    display:block;
+}
+
+.smm-dropdown-item{
+    padding:10px 12px;
+    display:block;
+    width:100%;
+    border:none;
+    background:none;
+    cursor:pointer;
+    text-align:left;
+    font-size:13px;
+}
+
+.smm-dropdown-item:hover{
+    background:#f3f7ff;
+}
+
+/* ================= MODAL ================= */
+/* Modal Centering and Responsiveness */
+.smm-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,.6);
+    backdrop-filter: blur(4px);
+    z-index: 9999;
+    /* Flexbox centering */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.smm-modal:not(.active) {
+    display: none !important;
+}
+.smm-modal-content {
+    background: #fff;
+    padding: 24px 20px;
+    border-radius: 14px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    animation: smmFade .2s ease;
+    position: relative;
+}
+
+@keyframes smmFade{
+    from{transform:scale(.9);opacity:0}
+    to{transform:scale(1);opacity:1}
+}
+
+#smm-post-title{
+    font-size:15px;
+    font-weight:600;
+    margin-bottom:10px;
+}
+
+.smm-modal-content input{
+    width:100%;
+    height:38px;
+    margin-top:10px;
+}
+
+/* ================= PAGINATION ================= */
+.smm-pagination{
+    padding:20px;
+    text-align:center;
+}
+
+.smm-page-btn{
+    margin:0 4px;
+    background:linear-gradient(90deg,#eef2f7,#dfe6ef);
+    color:#333;
+    font-weight:500;
+    box-shadow:0 3px 8px rgba(0,0,0,.08);
+}
+
+.smm-page-btn:hover{
+    transform:translateY(-1px);
+}
+
+.smm-page-btn.active{
+    background:linear-gradient(90deg,#2271b1,#00a0d2);
+    color:#fff;
+}
+
+/* ================= SELECT ================= */
+.smm-controls form{
+    position:relative;
+}
+
+.smm-controls select{
+    appearance:none;
+    padding:6px 35px 6px 12px;
+    border-radius:8px;
+    border:none;
+    font-size:13px;
+    cursor:pointer;
+    background:linear-gradient(90deg,#eef2f7,#dfe6ef);
+    box-shadow:0 3px 8px rgba(0,0,0,.08);
+    transition:.2s;
+}
+
+.smm-controls select:hover{
+    background:linear-gradient(90deg,#dfe6ef,#cfd8e3);
+}
+
+.smm-controls form::after{
+    content:"▾";
+    position:absolute;
+    right:10px;
+    top:50%;
+    transform:translateY(-50%);
+    pointer-events:none;
+    font-size:12px;
 }
 
 /* ================= DARK MODE ================= */
-.smm-wrapper.smm-dark {
-    background: #121212;
-    color: #e5e5e5;
+.smm-wrapper.smm-dark{
+    background:#121212;
+    color:#e5e5e5;
 }
 
-.smm-wrapper.smm-dark .smm-card {
-    background: #1e1e1e;
-    box-shadow: none;
+.smm-wrapper.smm-dark .smm-card{
+    background:#1e1e1e;
+    box-shadow:none;
 }
 
-.smm-wrapper.smm-dark .smm-table {
-    color: #ddd;
+.smm-wrapper.smm-dark .smm-table thead{
+    background:linear-gradient(90deg,#333,#444);
 }
 
-.smm-wrapper.smm-dark .smm-table thead {
-    background: linear-gradient(90deg, #333, #444);
-}
-
-.smm-wrapper.smm-dark .smm-table tbody tr:hover {
-    background: #2a2a2a;
+.smm-wrapper.smm-dark .smm-table tbody tr:hover{
+    background:#2a2a2a;
 }
 
 .smm-wrapper.smm-dark input,
 .smm-wrapper.smm-dark textarea,
+.smm-wrapper.smm-dark select{
+    background:#2a2a2a;
+    color:#fff;
+    border:1px solid #444;
+}
+
+.smm-wrapper.smm-dark input:focus,
+.smm-wrapper.smm-dark textarea:focus{
+    border-color:#888;
+    box-shadow:0 0 0 2px rgba(255,255,255,.1);
+}
+
+.smm-wrapper.smm-dark .smm-btn{
+    background:linear-gradient(90deg,#2a2a2a,#3a3a3a);
+    color:#fff;
+}
+
+.smm-wrapper.smm-dark .smm-btn.primary{
+    background:linear-gradient(90deg,#444,#666);
+}
+
+.smm-wrapper.smm-dark .smm-dropdown-menu{
+    background:#2a2a2a;
+    color:#fff;
+}
+
+.smm-wrapper.smm-dark .smm-dropdown-item:hover{
+    background:#3a3a3a;
+}
+
+.smm-wrapper.smm-dark .smm-modal-content{
+    background:#1e1e1e;
+    color:#fff;
+}
+
+.smm-wrapper.smm-dark .smm-page-btn{
+    background:#2a2a2a;
+    color:#fff;
+}
+
+.smm-wrapper.smm-dark .smm-page-btn.active{
+    background:linear-gradient(90deg,#555,#777);
+}
+
+.smm-wrapper.smm-dark #smm-theme-toggle{
+    background:linear-gradient(90deg,#888,#bbb);
+    color:#000;
+}
+/* 🔥 FORCE DARK MODE FULL COVER */
+.smm-wrapper.smm-dark {
+    background: #121212 !important;
+    color: #e5e5e5 !important;
+}
+
+/* CARD */
+.smm-wrapper.smm-dark .smm-card {
+    background: #1e1e1e !important;
+    box-shadow: none !important;
+}
+
+/* TABLE */
+.smm-wrapper.smm-dark .smm-table {
+    color: #ddd !important;
+}
+
+/* INPUTS */
+.smm-wrapper.smm-dark input,
+.smm-wrapper.smm-dark textarea,
 .smm-wrapper.smm-dark select {
-    background: #2a2a2a;
-    color: #fff;
-    border: 1px solid #444;
+    background: #2a2a2a !important;
+    color: #fff !important;
+    border: 1px solid #444 !important;
 }
 
-.smm-wrapper.smm-dark .smm-btn.primary {
-    background: linear-gradient(90deg, #555, #777);
-}/* ================= BUTTON BASE ================= */
-.smm-btn,
-.smm-page-btn,
-#smm-theme-toggle {
-    border: none;
-    border-radius: 8px;
-    padding: 6px 14px;
-    font-size: 13px;
-    cursor: pointer;
-    transition: 0.3s ease;
-    text-decoration: none;
-    display: inline-block;
-}
-
-/* ================= PRIMARY BUTTON ================= */
-.smm-btn.primary {
-    background: linear-gradient(90deg, #2271b1, #00a0d2);
-    color: #fff;
-    box-shadow: 0 4px 12px rgba(34,113,177,0.3);
-}
-
-.smm-btn.primary:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 6px 18px rgba(34,113,177,0.4);
-}
-
-/* ================= CLEAR BUTTON ================= */
-.smm-btn {
-    background: linear-gradient(90deg, #f1f1f1, #e0e0e0);
-    color: #333;
-}
-
-.smm-btn:hover {
-    background: linear-gradient(90deg, #e0e0e0, #d5d5d5);
-}
-
-/* ================= THEME TOGGLE ================= */
-#smm-theme-toggle {
-    background: linear-gradient(90deg, #222, #555);
-    color: #fff;
-    font-size: 14px;
-    padding: 6px 10px;
-}
-
-#smm-theme-toggle:hover {
-    transform: scale(1.05);
-}
-
-/* ================= PAGINATION ================= */
-.smm-pagination {
-    padding: 20px 0;
-    text-align: center;
-}
-
-/* Page buttons */
-.smm-page-btn {
-    margin: 0 4px;
-    background: linear-gradient(90deg, #eef2f7, #dfe6ef);
-    color: #333;
-    font-weight: 500;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
-}
-
-/* Hover */
-.smm-page-btn:hover {
-    background: linear-gradient(90deg, #dfe6ef, #cfd8e3);
-    transform: translateY(-1px);
-}
-
-/* Active page */
-.smm-page-btn.active {
-    background: linear-gradient(90deg, #2271b1, #00a0d2);
-    color: #fff;
-    box-shadow: 0 4px 12px rgba(34,113,177,0.3);
-}
-
-/* ================= TABLE HEADER GRADIENT ================= */
-.smm-table thead {
-    background: linear-gradient(90deg, #2271b1, #00a0d2);
-    color: #fff;
-}
-
-/* ================= INPUT STYLE ================= */
-.smm-table input,
-.smm-table textarea {
-    background: linear-gradient(180deg, #ffffff, #f7f9fc);
-}
-
-/* ================= DARK MODE ================= */
-
-/* Buttons */
-.smm-wrapper.smm-dark .smm-btn.primary {
-    background: linear-gradient(90deg, #444, #666);
-}
-
-.smm-wrapper.smm-dark .smm-btn {
-    background: linear-gradient(90deg, #2a2a2a, #3a3a3a);
-    color: #fff;
-}
-
-/* Pagination */
-.smm-wrapper.smm-dark .smm-page-btn {
-    background: linear-gradient(90deg, #2a2a2a, #3a3a3a);
-    color: #fff;
-}
-
-.smm-wrapper.smm-dark .smm-page-btn.active {
-    background: linear-gradient(90deg, #555, #777);
-}
-
-/* Toggle */
-.smm-wrapper.smm-dark #smm-theme-toggle {
-    background: linear-gradient(90deg, #888, #bbb);
-    color: #000;
-}
-/* ================= DROPDOWN WRAPPER ================= */
-.smm-controls form {
-    position: relative;
-}
-
-/* ================= DROPDOWN ================= */
-.smm-controls select {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-
-    padding: 6px 35px 6px 12px;
-    border-radius: 8px;
-    border: none;
-    font-size: 13px;
-    font-weight: 500;
-    cursor: pointer;
-
-    background: linear-gradient(90deg, #eef2f7, #dfe6ef);
-    color: #333;
-
-    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
-    transition: 0.3s;
-}
-
-/* Hover */
-.smm-controls select:hover {
-    background: linear-gradient(90deg, #dfe6ef, #cfd8e3);
-}
-
-/* Focus */
-.smm-controls select:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(34,113,177,0.2);
-}
-
-/* ================= CUSTOM ARROW ================= */
-.smm-controls form::after {
-    content: "▾";
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    pointer-events: none;
-    font-size: 12px;
-    color: #333;
-}
-
-/* ================= LABEL ================= */
-.smm-label {
-    font-weight: 600;
-    padding: 6px 10px;
-    border-radius: 8px;
-    background: linear-gradient(90deg, #2271b1, #00a0d2);
-    color: #fff;
-}
-
-/* ================= DARK MODE ================= */
-.smm-wrapper.smm-dark .smm-controls select {
-    background: linear-gradient(90deg, #2a2a2a, #3a3a3a);
-    color: #fff;
-}
-
-.smm-wrapper.smm-dark .smm-controls form::after {
-    color: #fff;
-}
-
-.smm-wrapper.smm-dark .smm-label {
-    background: linear-gradient(90deg, #444, #666);
-}/* ================= DROPDOWN OPTIONS FIX ================= */
-
-/* Light mode */
-.smm-controls select option {
-    color: #000;
-    background: #fff;
-}
-
-/* Dark mode */
+/* DROPDOWN FIX 🔥 */
 .smm-wrapper.smm-dark .smm-controls select option {
-    color: #fff;
-    background: #2a2a2a;
+    background: #2a2a2a !important;
+    color: #fff !important;
+}
+
+/* DROPDOWN MENU */
+.smm-wrapper.smm-dark .smm-dropdown-menu {
+    background: #2a2a2a !important;
+    color: #fff !important;
+}
+
+/* MODAL */
+.smm-wrapper.smm-dark .smm-modal-content {
+    background: #1e1e1e !important;
+    color: #fff !important;
+}
+
+/* BUTTONS */
+.smm-wrapper.smm-dark .smm-btn {
+    background: linear-gradient(90deg,#2a2a2a,#3a3a3a) !important;
+    color: #fff !important;
+}
+
+.smm-wrapper.smm-dark .smm-btn.primary {
+    background: linear-gradient(90deg,#444,#666) !important;
+}
+
+/* TABLE ROW HOVER */
+.smm-wrapper.smm-dark .smm-table tbody tr:hover {
+    background: #2a2a2a !important;
+}
+form#smm-bulk-form{
+    padding-left: 20px;
 }

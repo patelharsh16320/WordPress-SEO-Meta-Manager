@@ -9,16 +9,16 @@
 
 if (!defined('ABSPATH')) exit;
 
-// Includes
+// LOAD FILES
 require_once plugin_dir_path(__FILE__) . 'include/admin-page.php';
 require_once plugin_dir_path(__FILE__) . 'include/meta-handler.php';
 
-// CSS
-add_action('admin_enqueue_scripts', function ($hook) {
-    if ($hook !== 'toplevel_page_seo-meta-manager') return;
-
+// LOAD CSS
+add_action('admin_enqueue_scripts', function () {
     wp_enqueue_style(
         'smm-admin-css',
-        plugin_dir_url(__FILE__) . 'assets/admin.css'
+        plugin_dir_url(__FILE__) . 'assets/admin.css',
+        [],
+        '1.0.0'
     );
 });
