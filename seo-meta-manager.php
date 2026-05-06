@@ -4,7 +4,7 @@
  * Description: Manage and update Yoast SEO meta title and description for all posts, pages, and custom post types from a single dashboard.
  * Version: 1.0.0
  * Author: Harsh Patel
- * Author URI: https://github.com/patelharsh16320/
+ * Author URI: https://github.com/patelharsh16320/WordPress-SEO-Meta-Manager
  */
 
 if (!defined('ABSPATH')) exit;
